@@ -28,5 +28,11 @@ Widget navMenu(BuildContext context) {
         Navigator.of(context).pushNamed('/game');
       },
     ),
+    RaisedButton(
+      child: new Text('BoxGame'),
+      onPressed: () {
+        Navigator.of(context).pushNamed('/boxgame');
+      },
+    ),
   ]);
 }

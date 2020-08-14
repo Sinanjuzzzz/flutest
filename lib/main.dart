@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flame/util.dart';
+import 'package:flutter/services.dart';
 import 'Router.dart';
 
-void main() => runApp(new MyApp());
+void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  runApp(new MyApp());
+
+  Util flameUtil = Util();
+  flameUtil.fullScreen();
+  flameUtil.setOrientation(DeviceOrientation.portraitUp);
+}
 
 class MyApp extends StatelessWidget {
   @override
