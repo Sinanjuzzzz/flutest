@@ -1,6 +1,21 @@
 import 'dart:ui';
 import 'package:flame/game.dart';
 import 'package:flame/gestures.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class BoxGamePage extends StatelessWidget {
+  final game = BoxGame();
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('BoxGamePage'),
+      ),
+      body: new Center(child: game.widget),
+    );
+  }
+}
 
 class BoxGame extends Game with TapDetector {
   Size screenSize;

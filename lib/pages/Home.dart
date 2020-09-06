@@ -1,4 +1,6 @@
+import 'package:flutest/Router.dart';
 import 'package:flutter/material.dart';
+import '../Router.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -14,25 +16,19 @@ class Home extends StatelessWidget {
   }
 }
 
+List<Widget> NavButtons(BuildContext context) {
+  List<Widget> NavButtonlist = new List();
+  Router.routes.forEach((key, value) {
+    NavButtonlist.add(RaisedButton(
+      child: new Text(key),
+      onPressed: () {
+        Navigator.of(context).pushNamed(key);
+      },
+    ));
+  });
+  return NavButtonlist;
+}
+
 Widget navMenu(BuildContext context) {
-  return new Column(children: <Widget>[
-    RaisedButton(
-      child: new Text('Randomwords'),
-      onPressed: () {
-        Navigator.of(context).pushNamed('/randomwords');
-      },
-    ),
-    RaisedButton(
-      child: new Text('Game'),
-      onPressed: () {
-        Navigator.of(context).pushNamed('/game');
-      },
-    ),
-    RaisedButton(
-      child: new Text('BoxGame'),
-      onPressed: () {
-        Navigator.of(context).pushNamed('/boxgame');
-      },
-    ),
-  ]);
+  return new Column(children: NavButtons(context));
 }
